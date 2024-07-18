@@ -1,0 +1,48 @@
+ body{
+  min-height: 100vh;
+  //display: flex;
+  /* justify-items: center;
+  align-items: center; */
+} 
+
+.wrapper{
+  //width: 90%;
+  height: 100px;
+  //max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+@keyframes scroll{
+  to {
+    left: -200px;
+  }
+}
+
+.item{
+  width: 200px;
+  height: 100px;
+  content: attr(data-index);
+  background-color: blue;
+  border-radius: 6px;
+  position: absolute;
+  left: calc(200px * 8);
+  color: white;
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 30s;
+}
+
+.item-delay{
+  content: var(--index);
+  animation-delay: calc(30s / 8 * (8 - var(--index)) * -1);
+}
